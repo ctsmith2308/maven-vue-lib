@@ -1,5 +1,5 @@
 {
-  "name": "maven-vue-component-library",
+  "name": "maven-vue-lib",
   "version": "1.0.0",
   "private": true,
   "type": "module",

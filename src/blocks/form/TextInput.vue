@@ -19,7 +19,7 @@ const emit = defineEmits<{
 const { error, isRequired, updateValue, markTouched } = useFormField(toRef(props, 'name'));
 
 const inputClasses = computed(() => [
-  'input-base border-base hocus-base',
+  'rounded-md w-full px-3 h-8 bg-transparent border border-input-border transition-colors hover:border-brand focus:border-brand focus:outline-none',
   {
     'border-danger focus:border-danger': error.value,
     'opacity-50 cursor-not-allowed': props.disabled,
@@ -68,7 +68,6 @@ const className = computed(() => props.fluid && 'w-full');
         :aria-invalid="!!error"
         @input="onInput"
         @blur="onBlur"
-        class="w-full p-2 border border-input-border text-content-text rounded-md"
       />
 
       <slot name="suffix" />

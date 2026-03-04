@@ -47,7 +47,7 @@ const animationClass = computed(() => {
 </script>
 
 <template>
-  <div :class="['skeleton bg-surface-alt', animationClass]" :style="shapeStyles">
+  <div :class="['rounded-md inline-block relative overflow-hidden bg-surface-alt', animationClass]" :style="shapeStyles">
     <slot></slot>
   </div>
 </template>

@@ -13,10 +13,10 @@ const panel = inject<{
   <button
     type="button"
     :class="[
-      'accordion-header',
+      'w-full flex items-center justify-between px-4 py-3 text-left transition-colors cursor-pointer hover:bg-surface-alt',
       {
-        'accordion-header--disabled': panel?.disabled,
-        'accordion-header--active': panel?.isOpen(),
+        'opacity-50 cursor-not-allowed': panel?.disabled,
+        'bg-surface-alt': panel?.isOpen(),
       },
     ]"
     :disabled="panel?.disabled"

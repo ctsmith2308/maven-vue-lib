@@ -51,7 +51,7 @@ const totalRecordsCount = computed(() => {
   return props.totalRecords ?? props.data.length;
 });
 
-const tableClasses = computed(() => ['table-wrapper']);
+const tableClasses = computed(() => ['rounded-md w-full overflow-x-auto bg-surface border border-surface-border']);
 
 const onSort = (field: string) => {
   if (sortField.value === field) {
@@ -78,7 +78,7 @@ const onPageChange = (event: { page: number; first: number; rows: number; pageCo
   <div class="datatable-wrapper w-full space-y-4">
     <div :class="tableClasses">
       <table class="w-full">
-        <thead class="table-header">
+        <thead class="bg-panel-bg border-b border-panel-border">
           <tr>
             <TableHeaderCell
               v-for="column in columns"
@@ -117,7 +117,7 @@ const onPageChange = (event: { page: number; first: number; rows: number; pageCo
 
         <tbody v-else>
           <tr>
-            <td :colspan="columns.length" class="table-empty">
+            <td :colspan="columns.length" class="px-4 py-8 text-center text-content-text-secondary">
               <slot name="empty">
                 {{ emptyMessage }}
               </slot>

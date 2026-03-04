@@ -108,7 +108,7 @@ const transitionName = computed(() => `drawer-${props.position}`);
       <div class="flex items-center justify-between p-4 border-b border-surface-border shrink-0">
         <slot name="header" />
 
-        <Button variant="ghost" size="md" class="btn-icon ml-auto" @click="onClose" aria-label="Close drawer">
+        <Button variant="ghost" size="md" class="aspect-square p-0! ml-auto" @click="onClose" aria-label="Close drawer">
           <template #icon>
             <Icon iconType="XMarkIcon" />
           </template>

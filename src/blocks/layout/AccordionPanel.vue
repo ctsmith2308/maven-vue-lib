@@ -26,7 +26,7 @@ provide('accordionPanel', { isOpen, toggle, disabled: props.disabled });
 </script>
 
 <template>
-  <div class="panel">
+  <div class="rounded-md bg-surface border border-surface-border overflow-hidden">
     <slot />
   </div>
 </template>

@@ -34,7 +34,7 @@ const onLeave = (el: Element) => {
 <template>
   <Transition name="accordion" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave">
     <div v-if="panel?.isOpen()" class="accordion-content overflow-hidden">
-      <div class="accordion-body">
+      <div class="px-4 py-3 border-t border-surface-border">
         <slot />
       </div>
     </div>

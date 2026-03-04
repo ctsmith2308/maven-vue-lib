@@ -16,9 +16,9 @@ const isActive = computed(() => props.sortField === props.column.field);
 const isSortable = computed(() => props.column.sortable);
 
 const headerClasses = computed(() => [
-  'table-header-cell',
+  'px-4 py-3 text-left text-sm font-semibold text-content-text',
   {
-    'table-header-cell--sortable': isSortable.value,
+    'cursor-pointer hover:bg-surface-alt select-none': isSortable.value,
   },
 ]);
 

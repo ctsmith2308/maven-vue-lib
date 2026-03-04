@@ -1,4 +1,4 @@
-@import 'tailwindcss' source('../../../src/blocks/typography/');
+@import 'tailwindcss' source('../../../src');
 /* @import 'tailwindcss/theme'; */
 @import './token.css';
 

@@ -13,15 +13,6 @@ const meta = {
     as: { control: 'select', options: ['button', 'a'] },
     iconPosition: { control: 'select', options: ['left', 'right'] },
   },
-  args: {
-    label: 'Button',
-    color: 'primary',
-    size: 'md',
-    loading: false,
-    disabled: false,
-    raised: false,
-    rounded: false,
-  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -96,7 +87,9 @@ export const WithIconLeft: Story = {
   args: { label: 'With Icon', iconPosition: 'left' },
   render: (args) => ({
     components: { Button },
-    setup() { return { args }; },
+    setup() {
+      return { args };
+    },
     template: `
       <Button v-bind="args">
         <template #icon>
@@ -110,10 +103,12 @@ export const WithIconLeft: Story = {
 };
 
 export const IconOnly: Story = {
-  args: {},
+  args: { label: '' },
   render: (args) => ({
     components: { Button },
-    setup() { return { args }; },
+    setup() {
+      return { args };
+    },
     template: `
       <Button v-bind="args">
         <template #icon>

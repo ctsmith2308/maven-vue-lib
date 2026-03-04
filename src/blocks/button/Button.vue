@@ -19,32 +19,32 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 const slots = useSlots();
 
 const colorKeys = {
-  primary: 'btn-primary',
-  secondary: 'btn-secondary',
-  success: 'btn-success',
-  danger: 'btn-danger',
+  primary: 'bg-brand text-brand-contrast hover:bg-brand-solid-hover',
+  secondary: 'bg-secondary text-secondary-contrast hover:bg-secondary-solid-hover',
+  success: 'bg-success text-success-contrast hover:bg-success-solid-hover',
+  danger: 'bg-danger text-danger-contrast hover:bg-danger-solid-hover',
 };
 
 const outlinedKeys = {
-  primary: 'btn-outlined-primary',
-  secondary: 'btn-outlined-secondary',
-  success: 'btn-outlined-success',
-  danger: 'btn-outlined-danger',
+  primary: 'bg-transparent border border-brand text-brand hover:bg-brand-ghost-hover',
+  secondary: 'bg-transparent border border-secondary text-secondary hover:bg-secondary-ghost-hover',
+  success: 'bg-transparent border border-success text-success hover:bg-success-ghost-hover',
+  danger: 'bg-transparent border border-danger text-danger hover:bg-danger-ghost-hover',
 };
 
 const textKeys = {
-  primary: 'btn-text-primary',
-  secondary: 'btn-text-secondary',
-  success: 'btn-text-success',
-  danger: 'btn-text-danger',
+  primary: 'bg-transparent border-none text-brand hover:bg-brand-ghost-hover',
+  secondary: 'bg-transparent border-none text-secondary hover:bg-secondary-ghost-hover',
+  success: 'bg-transparent border-none text-success hover:bg-success-ghost-hover',
+  danger: 'bg-transparent border-none text-danger hover:bg-danger-ghost-hover',
 };
 
 const sizeKeys = {
-  sm: 'btn-sm',
-  md: 'btn-md',
-  lg: 'btn-lg',
-  xl: 'btn-xl',
-  jumbo: 'btn-jumbo',
+  sm: 'h-6 text-sm',
+  md: 'h-8 text-sm',
+  lg: 'h-10 text-base',
+  xl: 'h-12 text-base',
+  jumbo: 'h-16 text-lg',
 };
 
 // Wrapper span sizing for slotted icons — matches Icon size prop scale
@@ -57,11 +57,11 @@ const iconSizeKeys = {
 };
 
 const colorClass = computed(() => {
-  if (props.disabled) return 'btn-disabled';
-  if (props.variant === 'ghost') return 'btn-ghost';
+  if (props.disabled) return 'bg-disabled-bg text-disabled-text border-disabled-border cursor-not-allowed pointer-events-none';
+  if (props.variant === 'ghost') return 'bg-surface border border-surface-border text-content-text hover:border-brand hover:text-brand';
   if (props.variant === 'outlined') return outlinedKeys[props.color];
   if (props.variant === 'text') return textKeys[props.color];
-  if (props.variant === 'link') return 'btn-link';
+  if (props.variant === 'link') return 'bg-transparent border-none text-content-text hover:underline';
   return colorKeys[props.color];
 });
 
@@ -72,12 +72,12 @@ const isIconOnly = computed(() => !!slots.icon && !props.label);
 const iconWrapperClass = computed(() => iconSizeKeys[props.size]);
 
 const classes = computed(() => [
-  'rounded-md text-content-code py-1 px-1 bg-surface-alt',
+  'inline-flex items-center justify-center gap-2 rounded-md cursor-pointer transition-colors px-4',
   colorClass.value,
   sizeKeys[props.size],
-  isIconOnly.value ? 'btn-icon' : '',
-  props.raised ? 'btn-raised' : '',
-  props.rounded ? 'btn-rounded' : '',
+  isIconOnly.value ? 'aspect-square !p-0' : '',
+  props.raised ? 'shadow-md/30' : '',
+  props.rounded ? 'rounded-full' : '',
   iconPositionClass.value,
   props.loading ? 'cursor-progress' : '',
 ]);
